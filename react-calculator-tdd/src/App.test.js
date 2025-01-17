@@ -8,7 +8,7 @@ describe("Calculator Functionality tests",() => {
     expect(screen.getByText("1")).toBeInTheDocument();
   });
 
-  test("input numbers and operators correctly",()=>{
+  test("input numbers and operators correctly", ()=>{
     render(<App/>);
     fireEvent.click(screen.getByText("1"));
     fireEvent.click(screen.getByText("+"));
@@ -16,5 +16,14 @@ describe("Calculator Functionality tests",() => {
 
     const inputElement = screen.getByRole("textbox");
     expect(inputElement.value).toBe("1+2");
+  });
+
+  test("outputs addition of two numbers correctly",() => {
+    render(<App/>)
+    fireEvent.click(screen.getByText("2"));
+    fireEvent.click(screen.getByText("+"));
+    fireEvent.click(screen.getByText("3"));
+    fireEvent.click(screen.getByText("="));
+    expect(screen.getByText("Result: 5")).toBeInTheDocument();
   });
 });
