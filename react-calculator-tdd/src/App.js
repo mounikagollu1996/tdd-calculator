@@ -9,6 +9,11 @@ function App() {
     setInput((prev) => prev + value);
   };
 
+  const clearInput = () => {
+    setInput("");
+    setResult("");
+  };
+
   const calculateResult = () => {
     const result = eval(input);
     setResult(result);
@@ -25,6 +30,7 @@ function App() {
               <button
                 key={index}
                 onClick={
+                  value === "C" ? clearInput :
                   value === "="
                     ? calculateResult
                     : () => handleButtonClick(value.toString())
