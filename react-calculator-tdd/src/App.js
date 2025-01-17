@@ -22,13 +22,14 @@ function App() {
   return (
     <div className="main-container">
       <div className="calculator-container">
-        <input type="text" value={input} readOnly className="" />
-        <div>Result: {result}</div>
+        <input type="text" value={input} readOnly className="calculator-input" />
+        <div className="result">Result: {result}</div>
         <div className="buttons-container">
           {[1, 2, 3, "+", 4, 5, 6, "-", 7, 8, 9, "*", 0, "C", "="].map(
             (value, index) => (
               <button
                 key={index}
+                className={`calculator-button ${value === "C" ? " clear" : value === "=" ? " equal" : ""}`}
                 onClick={
                   value === "C"
                     ? clearInput
