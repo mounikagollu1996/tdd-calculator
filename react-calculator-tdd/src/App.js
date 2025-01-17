@@ -1,49 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
+import Calculator from "./components/Calculator";
 
 function App() {
-  const [input, setInput] = useState("");
-  const [result, setResult] = useState("");
-
-  const handleButtonClick = (value) => {
-    setInput((prev) => prev + value);
-  };
-
-  const clearInput = () => {
-    setInput("");
-    setResult("");
-  };
-
-  const calculateResult = () => {
-    const result = eval(input);
-    setResult(result);
-  };
-
   return (
-    <div className="main-container">
-      <div className="calculator-container">
-        <input type="text" value={input} readOnly className="calculator-input" />
-        <div className="result">Result: {result}</div>
-        <div className="buttons-container">
-          {[1, 2, 3, "+", 4, 5, 6, "-", 7, 8, 9, "*", 0, "C", "="].map(
-            (value, index) => (
-              <button
-                key={index}
-                className={`calculator-button ${value === "C" ? " clear" : value === "=" ? " equal" : ""}`}
-                onClick={
-                  value === "C"
-                    ? clearInput
-                    : value === "="
-                    ? calculateResult
-                    : () => handleButtonClick(value.toString())
-                }
-              >
-                {value}
-              </button>
-            )
-          )}
-        </div>
-      </div>
+    <div className="App">
+      <Calculator />
     </div>
   );
 }
