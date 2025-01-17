@@ -23,6 +23,8 @@ This Project is a simple calculator application built using React, following the
 # Clone the repository
 git clone https://github.com/mounikagollu1996/tdd-calculator.git
 
+git checkout develop
+
 # Navigate to the project directory
 cd tdd-calculator
 cd react-calculator-tdd
