@@ -44,4 +44,10 @@ describe("Calculator Functionality tests",() => {
     fireEvent.click(screen.getByText("="));
     expect(screen.getByText("Result: 36")).toBeInTheDocument();
   });
+
+  test("clears the input and result when C is pressed",()=>{
+    render(<App/>)
+    fireEvent.click(screen.getByText("C"));
+    expect(screen.getByText("Result:")).toBeInTheDocument();
+  });
 });
