@@ -30,8 +30,9 @@ function App() {
               <button
                 key={index}
                 onClick={
-                  value === "C" ? clearInput :
-                  value === "="
+                  value === "C"
+                    ? clearInput
+                    : value === "="
                     ? calculateResult
                     : () => handleButtonClick(value.toString())
                 }
