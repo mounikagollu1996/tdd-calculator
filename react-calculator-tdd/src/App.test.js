@@ -18,12 +18,30 @@ describe("Calculator Functionality tests",() => {
     expect(inputElement.value).toBe("1+2");
   });
 
-  test("outputs addition of two numbers correctly",() => {
+  test("outputs addition correctly",() => {
     render(<App/>)
     fireEvent.click(screen.getByText("2"));
     fireEvent.click(screen.getByText("+"));
     fireEvent.click(screen.getByText("3"));
     fireEvent.click(screen.getByText("="));
     expect(screen.getByText("Result: 5")).toBeInTheDocument();
+  });
+
+  test("outputs subtraction correctly",() => {
+    render(<App/>)
+    fireEvent.click(screen.getByText("7"));
+    fireEvent.click(screen.getByText("-"));
+    fireEvent.click(screen.getByText("4"));
+    fireEvent.click(screen.getByText("="));
+    expect(screen.getByText("Result: 3")).toBeInTheDocument();
+  });
+
+  test("outputs multiplication correctly",() => {
+    render(<App/>)
+    fireEvent.click(screen.getByText("6"));
+    fireEvent.click(screen.getByText("*"));
+    fireEvent.click(screen.getByText("6"));
+    fireEvent.click(screen.getByText("="));
+    expect(screen.getByText("Result: 36")).toBeInTheDocument();
   });
 });
